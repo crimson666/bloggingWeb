@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { AngularMaterialmodule } from './AngularMaterialModule';
+import { RouterOutlet } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet,AngularMaterialmodule,ReactiveFormsModule,FormsModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'bloggingWeb';

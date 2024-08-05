@@ -1,15 +1,12 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from 'express';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import { AngularMaterialmodule } from '../../AngularMaterialModule';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-create-post',
-  standalone: true,
-  imports: [AngularMaterialmodule,ReactiveFormsModule],
   templateUrl: './create-post.component.html',
-  styleUrl: './create-post.component.scss'
+  styleUrls: ['./create-post.component.scss']
 })
 export class CreatePostComponent {
   postForm!:FormGroup;
