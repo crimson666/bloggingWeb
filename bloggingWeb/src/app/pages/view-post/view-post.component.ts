@@ -14,6 +14,7 @@ export class ViewPostComponent {
   postId = this.activatedRoute.snapshot.params['id'];
   postData: any;
   commentForm!:FormGroup;
+  comments:any;
   constructor(
     private snackBar: MatSnackBar,
     private postService: PostService,
@@ -43,9 +44,28 @@ export class ViewPostComponent {
   getPostById(){
     return this.postService.getPostById(this.postId).subscribe((data)=>{
       this.postData = data;
+      this.getComments();
       console.log('Data', data);
     }, (error) => {
       this.snackBar.open("Somethis went erong","OK");
     });
+  }
+
+  getComments(){
+    this.commentService.getAllCommentsByPostId(this.postId).subscribe((data)=>{
+      console.log('Data', data);
+      this.comments = data;
+    }, (error) => {
+      this.snackBar.open("Somethis went erong","OK");
+    });
+  }
+
+  likePost(){
+    this.postService.postLikes(this.postId).subscribe((data)=>{
+      this.snackBar.open("Post liked Done!!","OK");
+      this.getPostById();
+     }, (error) => {
+       this.snackBar.open("Somethis went erong","OK");
+     });
   }
 }

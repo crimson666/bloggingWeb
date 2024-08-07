@@ -3,7 +3,7 @@
         <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
             <mat-card-title>{{postData.name}}</mat-card-title>
-            <mat-card-subtitle>Posted By: {{postData.postBy}} | posted On:{{postData.data|date:'medium'}}</mat-card-subtitle>
+            <mat-card-subtitle>Posted By: {{postData.postBy}} | posted On:{{postData.date|date:'medium'}}</mat-card-subtitle>
         </mat-card-header>
         <img mat-card-image [src]="postData.img" alt="Photo of a Shiba Inu" height="300px" class="img">
         <mat-card-content>
@@ -14,7 +14,7 @@
             <mat-chip *ngFor="let tag of postData.tags">{{tag}}</mat-chip>
         </mat-chip-set>
         <mat-card-actions>
-            <button mat-raised-button color="primary">{{postData.likeCount}}<mat-icon>thumb_up</mat-icon></button>
+            <button mat-raised-button color="primary" (click)="likePost()">{{postData.likeCount}}<mat-icon>thumb_up</mat-icon></button>
             <button mat-raised-button color="warn">{{postData.viewCount}} <mat-icon> remove_red_eye</mat-icon></button>
         </mat-card-actions>
     </mat-card>
@@ -37,4 +37,17 @@
             </div>
         </mat-card-content>
     </mat-card>
+    <div style="margin-top: 10px;">
+        <H4>Comments</H4>
+        <mat-card style="margin-top: 10px;" *ngFor="let comment of comments">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{ comment.postedBy }}</mat-card-title>
+            <mat-card-subtitle>{{ comment.createdAt | date:'medium' }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            {{comment.content}}
+        </mat-card-content>
+        </mat-card>
+    </div>
 </div>

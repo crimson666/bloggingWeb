@@ -10,13 +10,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AllPostComponent } from './pages/all-post/all-post.component';
 import { ViewPostComponent } from './pages/view-post/view-post.component';
+import { SearchByNameComponent } from './pages/search-by-name/search-by-name.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreatePostComponent,
     AllPostComponent,
-    ViewPostComponent
+    ViewPostComponent,
+    SearchByNameComponent
   ],
   imports: [
     BrowserModule,

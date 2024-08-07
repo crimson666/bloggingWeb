@@ -20,4 +20,12 @@ export class CommentService {
     };
     return this.http.post(`${URL}api/comments/create`,JSON.stringify(params),{ headers: headers });
   }
+
+  getAllCommentsByPostId(postId:number):Observable<any>{
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.http.get(`${URL}api/comments/${postId}`,{headers});
+
+  }
 }

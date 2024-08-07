@@ -21,4 +21,12 @@ export class PostService {
   getPostById(postId:number):Observable<any> {
     return this.http.get(`${URL}api/posts/${postId}`);
   }
+
+  postLikes(postId:number):Observable<any> {
+    return this.http.put(`${URL}api/posts/${postId}/like`,{});
+  }
+
+  searchByname(name:String):Observable<any> {
+    return this.http.get(`${URL}api/posts/search/${name}`);
+  }
 }
