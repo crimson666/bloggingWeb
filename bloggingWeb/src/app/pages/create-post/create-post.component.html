@@ -19,7 +19,7 @@
 
                 <mat-form-field appearance="fill">
                     <mat-label>Content</mat-label>
-                    <textarea matInput rows="5" formControlName="postBy"></textarea>
+                    <textarea matInput rows="5" formControlName="content"></textarea>
                 </mat-form-field>
 
                 <mat-form-field appearance="fill">
@@ -38,7 +38,7 @@
                     </mat-chip-grid>
                 </mat-form-field>
                 <button mat-raised-button color="primary" style="float: right;"
-                [disabled]="!postForm.valid">Create New Post</button>
+                [disabled]="!postForm.valid" (click)="createPost()">Create New Post</button>
             </form>
         </div>
     </mat-card-content>

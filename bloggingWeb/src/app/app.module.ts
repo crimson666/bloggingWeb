@@ -8,11 +8,15 @@ import { AngularMaterialmodule } from './AngularMaterialModule';
 import { CreatePostComponent } from './pages/create-post/create-post.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AllPostComponent } from './pages/all-post/all-post.component';
+import { ViewPostComponent } from './pages/view-post/view-post.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    AllPostComponent,
+    ViewPostComponent
   ],
   imports: [
     BrowserModule,
