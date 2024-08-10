@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-const URL = 'http://localhost:8080/';
+const URL = 'http://webblogdemo.ap-southeast-2.elasticbeanstalk.com/';
 
 @Injectable({
   providedIn: 'root'
