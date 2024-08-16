@@ -22,7 +22,7 @@ jobs:
       run: cd /home/runner/work/bloggingWeb/bloggingWeb
 
     - name: Install Dependencies
-      run: npm install
+      run: npm ci
 
     # Build the Angular app
     - name: Build Angular Application
