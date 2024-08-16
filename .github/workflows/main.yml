@@ -1,49 +1,40 @@
 name: Deploy Remotely
-
 on:
   push:
     branches: [ master ]
 
 jobs:
-  deploy-remotely:
+  Deploy-Remotely:
     runs-on: ubuntu-latest
-    
     steps:
-    # Checkout the repository
     - uses: actions/checkout@v2
-
-    # Setup Node.js environment
-    - name: Set up Node.js
+    - name: Use Node.js 18.19.0 to Build
       uses: actions/setup-node@v2
       with:
         node-version: 18.19.0
 
-    # Set working directory to the project folder
-    - name: Set Working Directory
-      working-directory: ./bloggingWeb
-
-    # Install Angular CLI globally (if not part of dev dependencies)
+    # Install Angular CLI globally (optional if it's not in package.json)
     - name: Install Angular CLI
       run: npm install -g @angular/cli@16.2.12
-      working-directory: ./bloggingWeb
 
-    # Install project dependencies
-    - name: Install dependencies
+    # Install dependencies
+    - name: Change Directory
+      run: cd /home/runner/work/bloggingWeb/bloggingWeb
+
+    - name: Install Dependencies
       run: npm install
-      working-directory: ./bloggingWeb
 
     # Build the Angular app
     - name: Build Angular Application
-      run: npm run build -- --prod
-      working-directory: ./bloggingWeb
+      run: ng build --prod
 
     # Transfer the build folder to the EC2 instance
-    - name: Transfer Build Folder to EC2 Instance
+    - name: Transfer Build Folder on EC2 Instance
       uses: easingthemes/ssh-deploy@v2.1.4
       env:
         SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
         REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
         REMOTE_USER: ${{ secrets.DEPLOY_USER }}
         REMOTE_PORT: ${{ secrets.DEPLOY_PORT }}
-        SOURCE: "bloggingWeb/dist/blogging-web/"
+        SOURCE: "dist/blogging-web/"
         TARGET: ${{ secrets.DEPLOY_TARGET }}
