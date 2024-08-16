@@ -12,27 +12,30 @@ jobs:
     # Checkout the repository
     - uses: actions/checkout@v2
 
-    # Navigate to the correct directory (update this path if necessary)
-    - name: Change Directory
-      run: cd bloggingWeb
-
     # Setup Node.js environment
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
         node-version: 18.19.0
 
+    # Set working directory to the project folder
+    - name: Set Working Directory
+      working-directory: ./bloggingWeb
+
     # Install Angular CLI globally (if not part of dev dependencies)
     - name: Install Angular CLI
       run: npm install -g @angular/cli@16.2.12
+      working-directory: ./bloggingWeb
 
     # Install project dependencies
     - name: Install dependencies
       run: npm install
+      working-directory: ./bloggingWeb
 
     # Build the Angular app
     - name: Build Angular Application
       run: npm run build -- --prod
+      working-directory: ./bloggingWeb
 
     # Transfer the build folder to the EC2 instance
     - name: Transfer Build Folder to EC2 Instance
