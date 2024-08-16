@@ -15,7 +15,7 @@ jobs:
 
     # Install Angular CLI globally (optional if it's not in package.json)
     - name: Install Angular CLI
-      run: npm install -g @angular/cli
+      run: npm install -g @angular/cli@16.2.12
 
     # Install dependencies
     - run: npm install
