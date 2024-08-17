@@ -19,7 +19,7 @@ jobs:
 
     # Install dependencies
     - name: Change Directory
-      run: cd /home/runner/work/bloggingWeb/bloggingWeb
+      run: cd /home/runner/work/bloggingWeb/
 
     - name: Install Dependencies
       run: npm install
