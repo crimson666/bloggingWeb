@@ -26,7 +26,8 @@ jobs:
 
     # Build the Angular app
     - name: Build Angular Application
-      run: ng build --prod
+      run: ng build --configuration=production
+
 
     # Transfer the build folder to the EC2 instance
     - name: Transfer Build Folder on EC2 Instance
