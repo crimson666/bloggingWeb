@@ -26,7 +26,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-##AWS connection details
+## AWS connection details
 
 IP: http://54.206.127.192/
 aws ec2 : i-0612f8bf0ef25a4a3 (bloggingWebCICD)
